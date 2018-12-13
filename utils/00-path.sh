@@ -24,3 +24,5 @@ function bu_path
 }
 
 export PATH="$(bu_path)"
+
+unset -f bu_path

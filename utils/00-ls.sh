@@ -30,6 +30,8 @@ function bu_ls_command
 # Create an alias with the desired options.
 alias ll="$(bu_ls_command)"
 
+unset -f bu_ls_command
+
 # Create an alias to display hidden files.
 alias la='ll -a'
 
