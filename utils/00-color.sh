@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
 ###
+# Outputs an escape sequence to STDOUT for stylized console output.
 #
+# Example:
+#
+#     echo "$(color -fred -bgreen)CHRISTMAS$(color -r)"
+#
+# For complete usage information, run:
+#
+#     color --help
 ##
 function color
 {
