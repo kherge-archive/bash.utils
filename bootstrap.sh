@@ -11,7 +11,7 @@ if [ "$BASH_UTILS" != '' ]; then
     if [ -d "$BASH_UTILS" ]; then
         while read SCRIPT; do
             source "$SCRIPT"
-        done < <(find "$BASH_UTILS/utils" -maxdepth 1 -name '*.sh')
+        done < <(find "$BASH_UTILS/utils" -maxdepth 1 -name '*.sh' | sort)
     else
         echo "$BASH_UTILS: No such directory" >&2
     fi
