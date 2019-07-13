@@ -28,7 +28,7 @@ function bu_ls_command
 }
 
 # Create an alias with the desired options.
-alias ll="$(bu_ls_command)"
+alias ll="$(bu_ls_command) -Isnap"
 
 unset -f bu_ls_command
 
