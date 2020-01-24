@@ -9,8 +9,13 @@ if grep -i Microsoft /proc/version &> /dev/null; then
     fi
 
     # Fix GNU_TTY for GPG agent.
-    if [ "$GPG_TTY" = "not a tty" ]; then
-        alias gpg="GPG_TTY='$TTY' gpg"
-        alias gpg="GPG_TTY='$TTY' gpg2"
+    if [ ! -f ~/.gnupg/S.gpg-agent ]; then
+        export GPG_TTY="$TTY"
+
+        gpgconf --kill gpg-agent
+
+        eval $(gpg-agent --daemon --options "$BASH_UTILS/utils/wsl/gpg-agent.conf")
     fi
+
+    export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent:0:1"
 fi
