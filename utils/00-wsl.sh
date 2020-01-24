@@ -9,7 +9,8 @@ if grep -i Microsoft /proc/version &> /dev/null; then
     fi
 
     # Fix GNU_TTY for GPG agent.
-    if [ "$GNU_TTY" = "" ]; then
-        export GNU_TTY="/dev/pts/0"
+    if [ "$GPG_TTY" = "not a tty" ]; then
+        alias gpg="GPG_TTY='$TTY' gpg"
+        alias gpg="GPG_TTY='$TTY' gpg2"
     fi
 fi
