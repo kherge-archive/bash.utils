@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Treats the first argument as the TTY.
+TTY="$1"
+
 ###
 # Loads all of the scripts contained in the utils directory.
 #

@@ -14,4 +14,4 @@ Installation
 1. Clone the repository.
 2. Edit your `.bashrc` script.
     1. Define `BASH_UTILS` as the path to the repository.
-    2. Add: `source "$BASH_UTILS/bootstrap.sh"`
+    2. Add: `. "$BASH_UTILS/bootstrap.sh" "$(tty)"`
