@@ -5,3 +5,6 @@ if [ -s "$HOME/.nvm/nvm.sh" ]; then
 
     source "$NVM_DIR/nvm.sh"
 fi
+
+# Register as enabled.
+bu_enabled $(basename "$BASH_SOURCE")

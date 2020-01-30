@@ -29,3 +29,6 @@ function warn
         echo "$@" >&2
     fi
 }
+
+# Register as enabled.
+bu_enabled $(basename "$BASH_SOURCE")

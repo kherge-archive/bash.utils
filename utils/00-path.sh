@@ -26,3 +26,6 @@ function bu_path
 export PATH="$(bu_path)"
 
 unset -f bu_path
+
+# Register as enabled.
+bu_enabled $(basename "$BASH_SOURCE")

@@ -37,3 +37,6 @@ alias la='ll -a'
 
 # Create an alias to display human friendly file sizes.
 alias lh='ll -h'
+
+# Register as enabled.
+bu_enabled $(basename "$BASH_SOURCE")

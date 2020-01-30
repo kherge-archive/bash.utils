@@ -22,3 +22,6 @@ if grep -i Microsoft /proc/version &> /dev/null; then
     # Configure a default display server.
     export DISPLAY="localhost:0.0"
 fi
+
+# Register as enabled.
+bu_enabled $(basename "$BASH_SOURCE")

@@ -169,3 +169,6 @@ COLOR
         echo -en "\e[${SEQUENCE}m"
     fi
 }
+
+# Register as enabled.
+bu_enabled $(basename "$BASH_SOURCE")
