@@ -4,7 +4,7 @@ if [ -s "$HOME/.nvm/nvm.sh" ]; then
     export NVM_DIR="$HOME/.nvm"
 
     source "$NVM_DIR/nvm.sh"
-fi
 
-# Register as enabled.
-bu_enabled $(basename "$BASH_SOURCE")
+    # Register as enabled.
+    bu_enabled $(basename "$BASH_SOURCE")
+fi
