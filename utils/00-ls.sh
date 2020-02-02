@@ -15,6 +15,7 @@ function bu_ls_command
         --color=auto
         --group-directories-first
         --hide-control-chars
+        --time-style=long-iso
         -l
     )
 
