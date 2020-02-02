@@ -19,7 +19,10 @@ function bu_ls_command
     )
 
     for OPTION in "${OPTIONS[@]}"; do
-        if [[ $HELP == *$OPTION* ]]; then
+        NAME=($(echo "$OPTION" | tr "=" "\n"))
+        NAME="${NAME[0]}"
+
+        if [[ $HELP == *$NAME* ]]; then
             COMMAND="$COMMAND $OPTION"
         fi
     done
