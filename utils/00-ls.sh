@@ -10,7 +10,12 @@
 function bu_ls_command
 {
     COMMAND="ls"
-    HELP="$(ls --help)"
+
+    if command -v gls > /dev/null; then
+        COMMAND=gls
+    fi
+
+    HELP="$($COMMAND --help)"
     OPTIONS=(
         --color=auto
         --group-directories-first
