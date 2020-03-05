@@ -35,3 +35,4 @@ fi
 
 # Clean up the feature tracker
 unset -f bu_enabled
+unset TTY
