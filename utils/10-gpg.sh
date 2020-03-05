@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$GPG_TTY" = 'not a tty' ]; then
+if [ "$GPG_TTY" = '' ] || [ "$GPG_TTY" = 'not a tty' ]; then
     export GPG_TTY="$TTY"
 
     # Register as enabled.
