@@ -41,6 +41,13 @@ ARGUMENTS
             return 0
         fi
 
+        # Make sure the X server is running.
+        if ! nc -z "$(echo "$DISPLAY" | cut -d: -f1)" 6000 -w 3; then
+            echo "The remote X server is not running."
+            echo
+            read -s -n 1 -p "Press any key to continue..."
+        fi
+
         # Create a log file.
         local LOG="$(tempfile -d /tmp/gui)"
 
