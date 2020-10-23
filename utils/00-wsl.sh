@@ -9,8 +9,10 @@ if grep -i Microsoft /proc/version &> /dev/null; then
     fi
 
     # Configure a default display server.
-    export DISPLAY="localhost:0.0"
+    export HOST_IP="$(grep nameserver /etc/resolve.conf | sed '/nameserver //')"
+    export DISPLAY="$HOST_IP:0.0"
 
     # Register as enabled.
     bu_enabled $(basename "$BASH_SOURCE")
 fi
+
