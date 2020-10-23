@@ -9,7 +9,7 @@ if grep -i Microsoft /proc/version &> /dev/null; then
     fi
 
     # Configure a default display server.
-    export HOST_IP="$(grep nameserver /etc/resolve.conf | sed '/nameserver //')"
+    export HOST_IP="$(grep nameserver /etc/resolv.conf | sed 's/nameserver //')"
     export DISPLAY="$HOST_IP:0.0"
 
     # Register as enabled.
