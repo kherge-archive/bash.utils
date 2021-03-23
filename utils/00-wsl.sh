@@ -26,6 +26,11 @@ if [ $WSL -gt 0 ]; then
         export DISPLAY="$(grep nameserver /etc/resolv.conf | sed 's/nameserver //'):0.0"
     fi
 
+    # Go home if starting directory is /mnt/c.
+    if [[ "$(pwd)" =~ /mnt/c* ]]; then
+        cd "$HOME"
+    fi
+
     # Define a function to simplify launching GUI apps.
     function gui
     {
