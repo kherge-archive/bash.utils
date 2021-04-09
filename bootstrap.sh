@@ -23,9 +23,13 @@ TTY="$1"
 ##
 if [ "$BASH_UTILS" != '' ]; then
     if [ -d "$BASH_UTILS" ]; then
-        while read SCRIPT; do
+        IFS=$'\n' SCRIPTS=($(find "$BASH_UTILS/utils" -maxdepth 1 -name '*.sh' | sort))
+
+        for SCRIPT in "${SCRIPTS[@]}"; do
             source "$SCRIPT"
-        done < <(find "$BASH_UTILS/utils" -maxdepth 1 -name '*.sh' | sort)
+        done < <(echo "$SCRIPTS")
+
+        unset SCRIPTS
     else
         echo "$BASH_UTILS: No such directory" >&2
     fi
