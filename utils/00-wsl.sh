@@ -19,11 +19,26 @@ if [ $WSL -gt 0 ]; then
         umask 022
     fi
 
+    # Get the Windows username.
+    export WSL_USER="$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' 2> /dev/null | sed -e 's/\r//g')"
+
+    # Get the host IP address.
+    export WSL_IP="$(grep nameserver /etc/resolv.conf | sed 's/nameserver //')"
+
     # Set the default display server.
     if [ $WSL -eq 1 ]; then
         export DISPLAY=":0.0"
     else
-        export DISPLAY="$(grep nameserver /etc/resolv.conf | sed 's/nameserver //'):0.0"
+        export DISPLAY="$WSL_IP:0.0"
+    fi
+
+    # Set the pulse audio server.
+    export PULSE_COOKIE="/mnt/c/Users/$WSL_USER/.pulse-cookie"
+
+    if [ $WSL -eq 1 ]; then
+        export PULSE_SERVER="tcp:127.0.0.1"
+    else
+        export PULSE_SERVER="tcp:$WSL_IP"
     fi
 
     # Go home if starting directory is /mnt/c.
