@@ -15,7 +15,7 @@ if [ "$GPG_TTY" = '' ] || [ "$GPG_TTY" = 'not a tty' ]; then
 
         # WTF
         # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=835394
-        gpg-connect-agent updatestartuptty /bye > /dev/null
+        gpg-connect-agent updatestartuptty /bye &> /dev/null
 
         # Restart the GPG agent.
         gpgconf --launch gpg-agent
